@@ -1,0 +1,10 @@
+services:
+  build_twrp:
+    build: .
+    container_name: twrp_build
+    working_dir: /twrp
+    volumes:
+      - .:/twrp/device/motorola/astro
+      - ./out:/twrp/out
+#    command: sleep infinity
+    command: bash -c "source build/envsetup.sh;lunch twrp_astro-eng;mka recoveryimage"
