@@ -8,7 +8,7 @@ RUN useradd -ms /bin/bash docker_build -u 1000
 RUN chown -R docker_build /twrp
 # Install dependencies
 RUN apt update
-RUN apt install git repo python-is-python3 -y
+RUN apt install git repo python-is-python3 rsync device-tree-compiler -y
 
 USER docker_build
 
