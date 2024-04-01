@@ -3,8 +3,8 @@ services:
     build: .
     container_name: twrp_build
     working_dir: /twrp
+    user: "docker_build"
     volumes:
-      - .:/twrp/device/motorola/astro
-      - ./out:/twrp/out
-#    command: sleep infinity
+      - .:/twrp/device/motorola/astro:ro
+      - ./out:/twrp/out:rw
     command: bash -c "source build/envsetup.sh;lunch twrp_astro-eng;mka recoveryimage"
