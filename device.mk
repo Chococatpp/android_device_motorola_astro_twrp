@@ -68,6 +68,3 @@ PRODUCT_HOST_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilt/dtb.img:$(PRODUCT_OUT)/dtb.img

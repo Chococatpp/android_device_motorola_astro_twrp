@@ -1,8 +1,8 @@
 [
   {
-    "remote":      "TeamWin",
-    "repository":  "android_device_qcom_twrp-common",
-    "target_path": "device/qcom/twrp-common",
+    "remote":      "github",
+    "repository":  "sdm710-motorola/android_kernel_motorola_sdm710",
+    "target_path": "kernel/motorola/sdm710",
     "revision":    "android-10"
   }
 ]
