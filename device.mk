@@ -69,3 +69,6 @@ PRODUCT_HOST_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Health HAL
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-impl.recovery
