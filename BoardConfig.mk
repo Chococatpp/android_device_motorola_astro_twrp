@@ -99,16 +99,15 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SECOND_OFFSET := 0x00f00000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 
-#BOARD_MKBOOTIMG_ARGS += \
-#    --header_version $(BOARD_BOOTIMG_HEADER_VERSION) \
-#    --base $(BOARD_KERNEL_BASE) \
-#    --dtb_offset $(BOARD_DTB_OFFSET) \
-#    --kernel_offset $(BOARD_KERNEL_OFFSET) \
-#    --ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
-#    --pagesize $(BOARD_KERNEL_PAGESIZE) \
-#    --second_offset $(BOARD_KERNEL_SECOND_OFFSET) \
-#    --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --header_version 1
+BOARD_MKBOOTIMG_ARGS += \
+    --header_version $(BOARD_BOOTIMG_HEADER_VERSION) \
+    --base $(BOARD_KERNEL_BASE) \
+    --dtb_offset $(BOARD_DTB_OFFSET) \
+    --kernel_offset $(BOARD_KERNEL_OFFSET) \
+    --ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
+    --pagesize $(BOARD_KERNEL_PAGESIZE) \
+    --second_offset $(BOARD_KERNEL_SECOND_OFFSET) \
+    --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
 # Kernel - Instructions
 TARGET_KERNEL_VERSION := 4.9
@@ -124,10 +123,11 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_PREBUILT_DTBOIMAGE := $(LOCAL_PATH)/prebuilt/dtbo.img
 
 # Kernel - Include DTB
-#BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-#TARGET_PREBUILD_DTB := $(LOCAL_PATH)/prebuilt/dtb.img
-#BOARD_MKBOOTIMG_ARGS += \
-#	--dtb $(TARGET_PREBUILD_DTB)
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true # idk if is already included
+TARGET_PREBUILD_DTB := $(LOCAL_PATH)/prebuilt/dtb.img
+BOARD_MKBOOTIMG_ARGS += \
+	--dtb $(TARGET_PREBUILD_DTB)
 
 
 # Partition Sizes
